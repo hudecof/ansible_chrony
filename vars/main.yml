@@ -1,0 +1,69 @@
+---
+# vars file for hudecof.chrony
+
+chrony_config_directives:
+  - {'name': 'server', 'type': 'l', 'default': null}
+  - {'name': 'pool', 'type': 'l', 'default': null}
+  - {'name': 'peer', 'type': 'l', 'default': null}
+  - {'name': 'refclock', 'type': 's', 'default': null}
+  - {'name': 'manual', 'type': 'b', 'default': null}
+  - {'name': 'acquisitionport', 'type': 's', 'default': null}
+  - {'name': 'bindacqaddress', 'type': 's', 'default': null}
+  - {'name': 'dumpdir', 'type': 's', 'default': null}
+  - {'name': 'dumponexit', 'type': 'b', 'default': null}
+  - {'name': 'maxsamples', 'type': 's', 'default': null}
+  - {'name': 'minsamples', 'type': 's', 'default': null}
+
+  - {'name': 'combinelimit', 'type': 's', 'default': null}
+  - {'name': 'maxdistance', 'type': 's', 'default': null}
+  - {'name': 'maxjitter', 'type': 's', 'default': null}
+  - {'name': 'minsources', 'type': 's', 'default': null}
+  - {'name': 'reselectdist', 'type': 's', 'default': null}
+  - {'name': 'stratumweight', 'type': 's', 'default': null}
+
+  - {'name': 'corrtimeratio', 'type': 's', 'default': null}
+  - {'name': 'driftfile', 'type': 's', 'default': null}
+  - {'name': 'fallbackdrift', 'type': 's', 'default': null}
+  - {'name': 'leapsecmode', 'type': 's', 'default': null}
+  - {'name': 'leapsectz', 'type': 's', 'default': null}
+  - {'name': 'makestep', 'type': 's', 'default': null}
+  - {'name': 'maxchange', 'type': 's', 'default': null}
+  - {'name': 'maxclockerror', 'type': 's', 'default': null}
+  - {'name': 'maxdrift', 'type': 's', 'default': null}
+  - {'name': 'maxupdateskew', 'type': 's', 'default': null}
+  - {'name': 'maxslewrate', 'type': 's', 'default': null}
+  - {'name': 'tempcomp', 'type': 's', 'default': null}
+
+  - {'name': 'bindaddress', 'type': 's', 'default': null}
+  - {'name': 'broadcast', 'type': 's', 'default': null}
+  - {'name': 'clientloglimit', 'type': 's', 'default': null}
+  - {'name': 'noclientlog', 'type': 'b', 'default': null}
+  - {'name': 'local', 'type': 's', 'default': null}
+  - {'name': 'ntpsigndsocket', 'type': 's', 'default': null}
+  - {'name': 'port', 'type': 's', 'default': null}
+  - {'name': 'ratelimit', 'type': 's', 'default': null}
+  - {'name': 'smoothtime', 'type': 's', 'default': null}
+  - {'name': 'bindcmdaddress', 'type': 's', 'default': null}
+  - {'name': 'cmdport', 'type': 's', 'default': null}
+  - {'name': 'cmdratelimit', 'type': 's', 'default': null}
+
+  - {'name': 'hwclockfile', 'type': 's', 'default': null}
+  - {'name': 'rtcautotrim', 'type': 's', 'default': null}
+  - {'name': 'rtcdevice', 'type': 's', 'default': null}
+  - {'name': 'rtcfile', 'type': 's', 'default': null}
+  - {'name': 'rtconutc', 'type': 'b', 'default': null}
+  - {'name': 'rtcsync', 'type': 'b', 'default': null}
+
+  - {'name': 'log', 'type': 's', 'default': null}
+  - {'name': 'logbanner', 'type': 's', 'default': null}
+  - {'name': 'logchange', 'type': 's', 'default': null}
+  - {'name': 'logdir', 'type': 's', 'default': null}
+  - {'name': 'mailonchange', 'type': 's', 'default': null}
+
+  - {'name': 'hwtimestamp', 'type': 's', 'default': null}
+  - {'name': 'include', 'type': 'l', 'default': null}
+  - {'name': 'keyfile', 'type': 's', 'default': null}
+  - {'name': 'lock_all', 'type': 'b', 'default': null}
+  - {'name': 'pidfile', 'type': 's', 'default': null}
+  - {'name': 'sched_priority', 'type': 's', 'default': null}
+  - {'name': 'user', 'type': 's', 'default': null}

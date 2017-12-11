@@ -1,0 +1,41 @@
+{{ ansible_managed | comment }}
+
+{% macro print_list(item_name, item_values=None, ident=0, comment=False) -%}
+{% if item_values is not none -%}
+{% for value in item_values|default([], true) -%}
+{{"\t" * ident}}{{ item_name }} {{ value }}
+{% endfor %}
+{%- elif comment %}
+{{"\t" * ident}}# {{ item_name }}
+{%- endif %}
+{%- endmacro %}
+
+{% macro print_scalar(item_name, item_value=None, ident=0, comment=False) -%}
+{% if item_value is not none %}
+{{"\t" * ident}}{{ item_name }} {{ item_value }}
+{%- elif comment %}
+{{"\t" * ident}}# {{ item_name }}
+{%- endif %}
+{%- endmacro %}
+
+{% macro print_boolean(item_name, item_value=None, ident=0, comment=False) -%}
+{% if item_value is not none and item_value %}
+{{"\t" * ident}}{{ item_name }}
+{%- elif comment %}
+{{"\t" * ident}}# {{ item_name }}
+{%- endif %}
+{%- endmacro %}
+
+
+{% for item in chrony_config_directives %}
+{% set inv_key = "chrony_conf_"+item.name %}
+{% set inv_key_os = "__chrony_conf_"+item.name %}
+{% set inv_value = vars[inv_key]|default(vars[inv_key_os])|default(item.default) %}
+{% if item.type == 'l' %}
+{{ print_list(item.name, inv_value,0, True) }}
+{% elif item.type == 's' %}
+{{ print_scalar(item.name, inv_value,0, True) }}
+{% elif item.type == 'b' %}
+{{ print_boolean(item.name, inv_value,0, True) }}
+{% endif %}
+{% endfor %}

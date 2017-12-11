@@ -1,0 +1,31 @@
+---
+# tasks file for chrony
+
+- name: Add the OS specific varibles
+  include_vars: "os-{{ ansible_os_family }}.yml"
+  tags:
+    - chrony
+    - chrony:setup
+    - chrony:service
+    - chrony:config
+
+# Debian(setup) specific tasks
+- name: include packages tasks
+  include: packages-{{ ansible_os_family }}.yml
+  tags:
+    - chrony
+    - chrony:setup
+
+# Common configuration tasks tasks
+- name: include config tasks
+  include: config.yml
+  tags:
+    - chrony
+    - chrony:config
+
+# Common service tasks
+- name: include service tasks
+  include: service.yml
+  tags:
+    - chrony
+    - chrony:service

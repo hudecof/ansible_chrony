@@ -1,0 +1,7 @@
+---
+- name: ensure chrony started/stopped
+  service:
+    name: "{{ chrony_service }}"
+    state: "{{ chrony_service_state }}"
+    enabled: "{{ chrony_service_enabled }}"
+  when: not chrony_test

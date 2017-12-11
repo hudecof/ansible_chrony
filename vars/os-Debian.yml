@@ -1,0 +1,23 @@
+---
+__chrony_packages:
+  - {'name':'openntpd', 'state':'absent'}
+  - {'name':'ntp', 'state':'absent'}
+  - {'name':'ntpdate', 'state':'absent'}
+  - {'name':'chrony', 'state':'present'}
+
+__chrony_service: chrony
+
+__chrony_file_conf: /etc/chrony/chrony.conf
+
+__chrony_conf_pool:
+  - 0.debian.pool.ntp.org iburst
+  - 1.debian.pool.ntp.org iburst
+  - 2.debian.pool.ntp.org iburst
+  - 3.debian.pool.ntp.org iburst
+__chrony_conf_keyfile: "/etc/chrony/chrony.keys"
+__chrony_conf_driftfile: /var/lib/chrony/chrony.drift
+__chrony_conf_makestep: "1 3"
+__chrony_conf_logdir: "/var/log/chrony"
+__chrony_conf_maxupdateskew: "100.0"
+__chrony_conf_hwclockfile: /etc/adjtime
+__chrony_conf_rtcsync: true

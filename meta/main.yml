@@ -1,0 +1,28 @@
+---
+galaxy_info:
+  author: Peter Hudec
+  description: installation and configuration of the chrony ntp service
+  company: CNC, a.s.
+  license: license BSD
+  min_ansible_version: 2.1
+  #
+  # Below are all platforms currently available. Just uncomment
+  # the ones that apply to your role. If you don't see your
+  # platform on this list, let us know and we'll get it added!
+  #
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  - name: Ubuntu
+    versions:
+    - xenial
+    - trusty
+  - name: Debian
+    versions:
+    - 8
+    - 9
+  galaxy_tags:
+  - system
+dependencies: []

@@ -1,0 +1,11 @@
+---
+- name: "setup chrony configuration"
+  template:
+    src: chrony.conf.j2
+    dest: "{{ chrony_file_conf }}"
+    backup: "{{ chrony_backup }}"
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    - restart chrony

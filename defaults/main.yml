@@ -1,0 +1,17 @@
+---
+# defaults file for hudecof.chrony
+
+chrony_packages: "{{ __chrony_packages }}"
+chrony_service: "{{ __chrony_service }}"
+
+chrony_file_conf: "{{ __chrony_file_conf }}"
+chrony_file_keys: "{{ __chrony_file_keys }}"
+chrony_file_drift: "{{ __chrony_file_drift }}"
+chrony_log_dir: "{{ __chrony_log_dir }}"
+
+chrony_backup: True
+
+chrony_service_enabled: yes
+chrony_service_state: started
+
+chrony_test: false

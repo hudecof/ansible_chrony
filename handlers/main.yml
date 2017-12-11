@@ -1,0 +1,8 @@
+---
+# handlers file for hudecof.chrony
+
+- name: restart chrony
+  service:
+    name: "{{ chrony_service }}"
+    state: "restarted"
+  when: not chrony_test
