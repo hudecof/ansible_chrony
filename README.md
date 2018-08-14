@@ -1,6 +1,6 @@
 # Chrony
 
-Ansible role to setup ntp service
+Ansible role to setup ntp service  based on chrony
 
 ## Requirements
 
@@ -8,7 +8,30 @@ Ansible role to setup ntp service
 
 ## Role Variables
 
-in the variable `ntp_config_directives` defined in `vars/main.yml` are defined all supported `chrony.conf` variables with defautls. For each variable there is **name**, **type** and **default value**. 
+Some variables defaults are based on the support OS. These variables are in `vars/os-<OS>.yml` files.
+
+### General Variables
+
+`chrony_packages`: list of packages to install or remove based on the OS
+
+`chrony_service`: service name based on the OS
+
+`chrony_service`: configuration file location based on the OS
+
+`chrony_file_keys`: ntp keys file locations
+
+`chrony_log_dir`: log file directory
+
+`chrony_backup`: if the  backup old chrony configuration files should be backuped
+
+`chrony_backup`: if the service should be enabled
+
+`chrony_service_state`: if the service should be started
+
+### Configuration file Variables
+
+
+The `ntp_config_directives` variable defined in `vars/main.yml` hold all supported `chrony.conf` variables with defautls. For each variable there is **name**, **type** and **default value**. 
 
 To override the the default value set varibale `chrony_conf_<name>`, see some defaults in `defautls/main.yml`
 
@@ -16,9 +39,8 @@ If the type is
 
 - **s** / **scalar**: use value enclosed in double quote, since values like **yes** and **no** have special meaning.
 - **l** / **list**: use YAML list syntax, like `['val1', 'val2']`
-- **b** / **list**: has boolean value indicating wheather to display item
+- **b** / **list**: has boolean value indicating whether to display item
 
-There are some OS specific variables, which are defined in variables `__chrony_conf_<name>` in `vars/os-<distribution>` but still could be overwriten.
 
 ## Dependencies
 
@@ -31,4 +53,3 @@ BSD
 ## Author Information
 
 Peter Hudec
-CNC, a.s.
