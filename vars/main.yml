@@ -34,6 +34,8 @@ chrony_config_directives:
   - {'name': 'maxslewrate', 'type': 's', 'default': null}
   - {'name': 'tempcomp', 'type': 's', 'default': null}
 
+  - {'name': 'allow', 'type': 'l', 'default': null}
+  - {'name': 'deny', 'type': 'l', 'default': null}
   - {'name': 'bindaddress', 'type': 's', 'default': null}
   - {'name': 'broadcast', 'type': 's', 'default': null}
   - {'name': 'clientloglimit', 'type': 's', 'default': null}
