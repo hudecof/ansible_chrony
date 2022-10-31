@@ -1,0 +1,21 @@
+---
+__chrony_packages:
+  - {'name':'ntp', 'state':'absent'}
+  - {'name':'ntpdate', 'state':'absent'}
+  - {'name':'chrony', 'state':'present'}
+
+__chrony_service: chronyd
+
+__chrony_file_conf: /etc/chrony.conf
+
+__chrony_conf_server: null
+__chrony_conf_pool:
+  - 0.cloudlinux.pool.ntp.org
+  - 1.cloudlinux.pool.ntp.org
+  - 2.cloudlinux.pool.ntp.org
+  - 3.cloudlinux.pool.ntp.org
+__chrony_conf_driftfile: /var/lib/chrony/drift
+__chrony_conf_makestep: "1.0 3"
+__chrony_conf_rtcsync: true
+__chrony_conf_logdir: "/var/log/chrony"
+__chrony_conf_keyfile: "/etc/chrony.keys"
