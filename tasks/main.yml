@@ -1,28 +1,34 @@
 ---
 # tasks file for chrony
 
-- name: Add the OS specific varibles
-  include_vars: "os-{{ ansible_os_family }}.yml"
+- name: "Add the OS specific varibles"
+  ansible.builtin.include_vars: "{{ item }}"
+  with_first_found:
+    - "os-{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml"
+    - "os-{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
+    - "os-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+    - "os-{{ ansible_distribution }}.yml"
+    - "os-default.yml"
   tags:
     - always
 
 # Debian(setup) specific tasks
-- name: include packages tasks
-  include: packages-{{ ansible_os_family }}.yml
+- name: "Include packages tasks"
+  ansible.builtin.include_tasks: packages-{{ ansible_os_family }}.yml
   tags:
     - chrony
     - chrony:setup
 
 # Common configuration tasks tasks
-- name: include config tasks
-  include: config.yml
+- name: "Include config tasks"
+  ansible.builtin.include_tasks: config.yml
   tags:
     - chrony
     - chrony:config
 
 # Common service tasks
-- name: include service tasks
-  include: service.yml
+- name: "Include service tasks"
+  ansible.builtin.include_tasks: service.yml
   tags:
     - chrony
     - chrony:service

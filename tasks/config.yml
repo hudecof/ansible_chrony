@@ -1,6 +1,6 @@
 ---
-- name: "setup chrony configuration"
-  template:
+- name: "Setup chrony configuration"
+  ansible.builtin.template:
     src: chrony.conf.j2
     dest: "{{ chrony_file_conf }}"
     backup: "{{ chrony_backup }}"

@@ -9,9 +9,9 @@ chrony_file_keys: "{{ __chrony_file_keys }}"
 chrony_file_drift: "{{ __chrony_file_drift }}"
 chrony_log_dir: "{{ __chrony_log_dir }}"
 
-chrony_backup: True
+chrony_backup: true
 
-chrony_service_enabled: yes
+chrony_service_enabled: true
 chrony_service_state: started
 
 chrony_test: false
