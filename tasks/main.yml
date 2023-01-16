@@ -14,21 +14,33 @@
 
 # Debian(setup) specific tasks
 - name: "Include packages tasks"
-  ansible.builtin.include_tasks: packages-{{ ansible_os_family }}.yml
+  ansible.builtin.include_tasks:
+    file: packages-{{ ansible_os_family }}.yml
+    apply:
+      tags:
+        - chrony
+        - chrony:setup
   tags:
-    - chrony
-    - chrony:setup
+    - always
 
 # Common configuration tasks tasks
 - name: "Include config tasks"
-  ansible.builtin.include_tasks: config.yml
+  ansible.builtin.include_tasks:
+    file: config.yml
+    apply:
+      tags:
+        - chrony
+        - chrony:config
   tags:
-    - chrony
-    - chrony:config
+    - always
 
 # Common service tasks
 - name: "Include service tasks"
-  ansible.builtin.include_tasks: service.yml
+  ansible.builtin.include_tasks:
+    file:  service.yml
+    apply:
+      tags:
+        - chrony
+        - chrony:service
   tags:
-    - chrony
-    - chrony:service
+    - always
